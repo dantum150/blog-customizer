@@ -4,7 +4,6 @@ import styles from './ArticleParamsForm.module.scss';
 import clsx from 'clsx';
 import { ReactNode } from 'react';
 
-// props: {changeAside, isVisible}
 export const ArticleParamsForm = (props: {
 	changeAside: () => void;
 	changePageVisual: (event: React.FormEvent<HTMLFormElement>) => void;

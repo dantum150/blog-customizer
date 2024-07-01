@@ -9,13 +9,8 @@ export const ArrowButton = (props: {
 	isVisible: boolean;
 }) => {
 	console.log(props.isVisible);
-	// Global => local
 
-	//clsx => {
-	// 	название css-класса:
-	// }
 	return (
-		/* Не забываем указаывать role и aria-label атрибуты для интерактивных элементов */
 		<div
 			role='button'
 			aria-label='Открыть/Закрыть форму параметров статьи'
@@ -24,7 +19,6 @@ export const ArrowButton = (props: {
 			className={clsx({
 				[styles.container]: true,
 				[styles.container_open]: props.isVisible,
-				// [styles.arrow_open]: props.isVisible,
 			})}>
 			<img
 				src={arrow}
