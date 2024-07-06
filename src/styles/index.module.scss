@@ -2,16 +2,3 @@
 	--bg-color: #ffffff;
 	background-color: var(--bg-color, #ffffff);
 }
-
-.title {
-	font-weight: 800;
-	font-size: 31px;
-	font-family: 'Open Sans', sans-serif;
-	text-transform: uppercase;
-}
-
-.selectGroup {
-	display: flex;
-	flex-direction: column;
-	gap: 50px;
-}

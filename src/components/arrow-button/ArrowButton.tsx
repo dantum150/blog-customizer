@@ -2,14 +2,12 @@ import arrow from 'src/images/arrow.svg';
 import styles from './ArrowButton.module.scss';
 import clsx from 'clsx';
 /** Функция для обработки открытия/закрытия формы */
-export type OnClick = () => void;
+export type OnClick = (event: React.MouseEvent<HTMLDivElement>) => void;
 
 export const ArrowButton = (props: {
 	changeAside: OnClick;
-	isVisible: boolean;
+	isMenuOpen: boolean;
 }) => {
-	console.log(props.isVisible);
-
 	return (
 		<div
 			role='button'
@@ -18,14 +16,14 @@ export const ArrowButton = (props: {
 			onClick={props.changeAside}
 			className={clsx({
 				[styles.container]: true,
-				[styles.container_open]: props.isVisible,
+				[styles.container_open]: props.isMenuOpen,
 			})}>
 			<img
 				src={arrow}
 				alt='иконка стрелочки'
 				className={clsx({
 					[styles.arrow]: true,
-					[styles.arrow_open]: props.isVisible,
+					[styles.arrow_open]: props.isMenuOpen,
 				})}
 			/>
 		</div>
