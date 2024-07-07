@@ -32,7 +32,7 @@ export const ArticleParamsForm = (props: {
 		isOpen: isMenuOpen,
 		rootRef,
 		onClose: () => setIsMenuOpen(false),
-		onChange: () => setIsMenuOpen(false),
+		onChange: () => setIsMenuOpen(true),
 	});
 
 	function onClick(event: React.MouseEvent<HTMLDivElement>) {
@@ -40,6 +40,15 @@ export const ArticleParamsForm = (props: {
 		setIsMenuOpen(!isMenuOpen);
 	}
 
+	function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+		props.changePageVisual(event);
+		setIsMenuOpen(false);
+	}
+
+	function onReset() {
+		props.reset();
+		setIsMenuOpen(false);
+	}
 	return (
 		<>
 			<ArrowButton changeAside={onClick} isMenuOpen={isMenuOpen} />
@@ -49,7 +58,7 @@ export const ArticleParamsForm = (props: {
 					[styles.container]: true,
 					[styles.container_open]: isMenuOpen,
 				})}>
-				<form onSubmit={props.changePageVisual} className={styles.form}>
+				<form onSubmit={onSubmit} className={styles.form}>
 					<div className={styles.selectGroup}>
 						<Text size={31} weight={800} family='open-sans' uppercase={true}>
 							Задайте параметры
@@ -92,7 +101,7 @@ export const ArticleParamsForm = (props: {
 						/>
 					</div>
 					<div className={styles.bottomContainer}>
-						<Button onClick={props.reset} title='Сбросить' type='reset' />
+						<Button onClick={onReset} title='Сбросить' type='reset' />
 						<Button title='Применить' type='submit' />
 					</div>
 				</form>
