@@ -3,7 +3,6 @@ import { Button } from 'components/button';
 import styles from './ArticleParamsForm.module.scss';
 import clsx from 'clsx';
 import { useState, useRef } from 'react';
-import { useOutsideClickClose } from '../select/hooks/useOutsideClickClose';
 
 import {
 	OptionType,
@@ -17,6 +16,7 @@ import {
 import { Select } from '../select';
 import { RadioGroup } from '../radio-group';
 import { Text } from '../text';
+import { useClose } from 'src/hooks/useClose';
 export const ArticleParamsForm = (props: {
 	changePageVisual: (event: React.FormEvent<HTMLFormElement>) => void;
 	reset: () => void;
@@ -28,11 +28,10 @@ export const ArticleParamsForm = (props: {
 
 	const rootRef = useRef<HTMLDivElement>(null);
 
-	useOutsideClickClose({
+	useClose({
 		isOpen: isMenuOpen,
 		rootRef,
 		onClose: () => setIsMenuOpen(false),
-		onChange: () => setIsMenuOpen(true),
 	});
 
 	function onClick(event: React.MouseEvent<HTMLDivElement>) {
